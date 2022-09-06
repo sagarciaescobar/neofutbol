@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Table from "react-bootstrap/Table";
 import Button from "../ButtonConnect";
 import logo from "../../public/logo.png";
 import { glowOnHover } from "../Hero/index.module.css";
 import style from "./index.module.css";
+import { useNeoFutbol } from "../../hooks/useNeoFutbol";
 
 const { title, cardContainer, bloque, imagen, imagenContenedor } = style;
 
@@ -22,6 +23,15 @@ const users = [
 ];
 
 export default function Scoreboard() {
+  const { contract } = useNeoFutbol();
+  const [users, setUsers] = useState([]);
+  useEffect(
+    ()=> {
+      if(contract.getOwners){
+        contract.getOwners()
+        .then(data =>{setUsers(data)})
+      }
+    },[contract])
   return (
     <section id="scoreboard">
       <h1 className={title}>Tabla de posiciones</h1>

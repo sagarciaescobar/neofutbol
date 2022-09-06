@@ -18,28 +18,41 @@ export const useNeoFutbol = () => {
     }
   }, []);
 
-  const getGallery = async () => {
-    setLoading(true);
-    if (contract.totalSupply) {
-      
-      setLoading(false);
-    }
+  const getOwners = async () => {
+    const totalSupply = await instance.totalSupply();
+    const tokens = new Array(totalSupply.toNumber()).fill();
+    const promisesOwners = tokens.map(async (_, i) => {
+      const token = await instance.ownerOf(i);
+      return token;
+    });
+    const address = await Promise.all(promisesOwners);
+    const board = Array.from(new Set(address));
+    const data = board.map((curr) => {
+      const numtokens = address.filter((t) => t == curr).length;
+      const percentage = (numtokens / totalSupply.toNumber())*100;
+      return { address: curr, percentage };
+    });
+
+    return data;
   };
 
   const getData = async () => {
     const totalSupply = await instance.totalSupply();
     const tokens = new Array(totalSupply.toNumber()).fill();
-      const promises = tokens.map(async (_, i) => {
-        const token = await instance.tokenURI(i);
-        return JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, "")));
-      });
-      const data = await Promise.all(promises);
-      setContract((prev) => ({ ...prev, gallery: data }));
-    setLoading(false)
+    const promises = tokens.map(async (_, i) => {
+      const token = await instance.tokenURI(i);
+      return JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, "")));
+    });
+    const data = await Promise.all(promises);
+    setContract((prev) => ({ ...prev, gallery: data }));
+    setLoading(false);
   };
 
   useEffect(() => {
-    if (instance) getData();
+    if (instance) {
+      getData();
+      setContract((prev) => ({ ...prev, getOwners: getOwners }));
+    }
   }, [instance]);
 
   useEffect(() => {
@@ -49,8 +62,6 @@ export const useNeoFutbol = () => {
       console.log(e);
     }
   }, []);
-
-  contract.getGallery = getGallery;
 
   return { contract, loading };
 };
