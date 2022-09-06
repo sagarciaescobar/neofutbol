@@ -1,15 +1,18 @@
 import React from "react";
 import Button from "../ButtonConnect";
+import ButtonMint from "../ButtonMint";
 import Image from "next/image";
 import styles from "./index.module.css";
 import wallets from "../../public/wallets.png";
 import cards from "../../public/cards.png";
 import album from "../../public/album.png";
 import { glowOnHover } from "../Hero/index.module.css";
+import { useWallet } from "../../hooks/useWallet";
 
-const { bloque, bloqueTexto, reverse, bloqueImg } = styles;
+const { bloque, bloqueTexto, reverse, bloqueImg, bloque_2 } = styles;
 
 export default function Info() {
+  const { isActive, provider } = useWallet();
   return (
     <section id="info">
       <div className={bloque}>
@@ -72,9 +75,19 @@ export default function Info() {
           <Image src={wallets} className={bloqueImg}></Image>
         </div>
       </div>
-      <div className={bloque}>
-        <Button className={glowOnHover} variant="danger" size="lg" />{" "}
-      </div>
+      {!isActive && (
+        <>
+          <div className={bloque_2}>
+            <h3>Conecta tu wallet y obten tu token</h3>
+            <Button className={glowOnHover} variant="danger" size="lg" />{" "}
+          </div>
+        </>
+      )}
+      {isActive && (
+        <div className={bloque}>
+          <ButtonMint className={glowOnHover} variant="danger" size="lg" />{" "}
+        </div>
+      )}
     </section>
   );
 }

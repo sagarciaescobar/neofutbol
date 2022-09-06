@@ -29,11 +29,19 @@ export const useNeoFutbol = () => {
     const board = Array.from(new Set(address));
     const data = board.map((curr) => {
       const numtokens = address.filter((t) => t == curr).length;
-      const percentage = (numtokens / totalSupply.toNumber())*100;
+      const percentage = (numtokens / totalSupply.toNumber()) * 100;
       return { address: curr, percentage };
     });
 
     return data;
+  };
+
+  const mint = async (provider) => {
+    console.log(contract);
+    const contractWithSign = instance.connect(provider.getSigner());
+    contractWithSign.mint()
+      .then((e) => e)
+      .catch((e) => alert(e.message));
   };
 
   const getData = async () => {
@@ -63,5 +71,5 @@ export const useNeoFutbol = () => {
     }
   }, []);
 
-  return { contract, loading };
+  return { contract, loading, mint };
 };
