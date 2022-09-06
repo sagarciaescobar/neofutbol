@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import Button from "../ButtonConnect";
+import { Button } from "react-bootstrap";
+import ButtonConnect from "../ButtonConnect";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { glowOnHover } from "../Hero/index.module.css";
+import { useWallet } from "../../hooks/useWallet";
 
 function Header() {
+  const { disconnect, isActive } = useWallet();
   const [show, setShow] = useState(false);
   const handleClose = () => setTimeout(() => setShow(!show), 500);
   return (
@@ -60,11 +63,24 @@ function Header() {
                     Tabla de posiciones
                   </Nav.Link>
                   <br />
-                  <Button
-                    className={glowOnHover}
-                    variant="danger"
-                    size="sm"
-                  />{" "}
+                  {!isActive ? (
+                    <ButtonConnect
+                      className={glowOnHover}
+                      variant="danger"
+                      size="sm"
+                    />
+                  ) : (
+                    <Button
+                      onClick={() => {
+                        disconnect();
+                      }}
+                      className={glowOnHover}
+                      variant="danger"
+                      size="sm"
+                    >
+                      Desconectar
+                    </Button>
+                  )}{" "}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

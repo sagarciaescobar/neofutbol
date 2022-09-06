@@ -12,10 +12,15 @@ export const useWallet = () => {
     await metaMask.activate(chainId);
   };
 
+  const disconnect = async () => {
+    await metaMask.resetState()
+  };
+
   return {
     isActivating,
     isActive,
     connect,
     provider,
+    disconnect,
   };
 };
