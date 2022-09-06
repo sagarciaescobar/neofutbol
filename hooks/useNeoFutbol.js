@@ -6,7 +6,7 @@ import { abi, address } from "../config/contractData.json";
 export const useNeoFutbol = () => {
   const [instance, setInstance] = useState();
   const [contract, setContract] = useState({});
-  const [error, setError] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const ethersLibrary = useCallback(() => {
     if (typeof window !== "undefined") {
@@ -19,21 +19,23 @@ export const useNeoFutbol = () => {
   }, []);
 
   const getGallery = async () => {
+    setLoading(true);
     if (contract.totalSupply) {
-      const tokens = new Array(contract.totalSupply).fill();
-      const promises = tokens.map(async (_, i) => {
-        const token = await instance.tokenURI(i);
-        return JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, "")));
-      });
-      const data = await Promise.all(promises)
-      console.log(data);
-      return data;
+      
+      setLoading(false);
     }
   };
 
   const getData = async () => {
     const totalSupply = await instance.totalSupply();
-    setContract((prev) => ({ ...prev, totalSupply: totalSupply.toNumber() }));
+    const tokens = new Array(totalSupply.toNumber()).fill();
+      const promises = tokens.map(async (_, i) => {
+        const token = await instance.tokenURI(i);
+        return JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, "")));
+      });
+      const data = await Promise.all(promises);
+      setContract((prev) => ({ ...prev, gallery: data }));
+    setLoading(false)
   };
 
   useEffect(() => {
@@ -50,5 +52,5 @@ export const useNeoFutbol = () => {
 
   contract.getGallery = getGallery;
 
-  return { contract };
+  return { contract, loading };
 };

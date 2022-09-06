@@ -47,13 +47,16 @@ function Header() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#home" onClick={handleClose}>
+                  <Nav.Link href="/#home" onClick={handleClose}>
                     Home
                   </Nav.Link>
-                  <Nav.Link href="#info" onClick={handleClose}>
+                  <Nav.Link href="/#info" onClick={handleClose}>
                     Como funciona?
                   </Nav.Link>
-                  <Nav.Link href="#scoreboard" onClick={handleClose}>
+                  <Nav.Link href="/gallery" onClick={handleClose}>
+                    Galeria
+                  </Nav.Link>
+                  <Nav.Link href="/#scoreboard" onClick={handleClose}>
                     Tabla de posiciones
                   </Nav.Link>
                   <br />

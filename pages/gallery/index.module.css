@@ -1,0 +1,11 @@
+.gallery_container {
+  min-height: 87vh;
+  margin: 20px 130px;
+}
+
+.tokens_container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
