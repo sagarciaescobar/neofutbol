@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
+import Button from "../ButtonConnect";
 import logo from "../../public/logo.png";
 import { glowOnHover } from "../Hero/index.module.css";
 import style from "./index.module.css";
@@ -63,9 +63,7 @@ export default function Scoreboard() {
         <Image className={imagen} src={logo} alt="Logo Grande" />
       </div>
       <div className={bloque}>
-        <Button className={glowOnHover} variant="danger" size="lg">
-          Conecta tu wallet
-        </Button>{" "}
+        <Button className={glowOnHover} variant="danger" size="lg"/>{" "}
       </div>
     </section>
   );
