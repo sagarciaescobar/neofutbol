@@ -29,17 +29,20 @@ export const useNeoFutbol = () => {
     const board = Array.from(new Set(address));
     const data = board.map((curr) => {
       const numtokens = address.filter((t) => t == curr).length;
-      const percentage = (numtokens / totalSupply.toNumber()) * 100;
+      const percentage = Math.round(
+        (numtokens / totalSupply.toNumber()) * 100,
+        3
+      );
       return { address: curr, percentage };
     });
-
+    data.sort((a,b)=>a.percentage < b.percentage)
     return data;
   };
 
   const mint = async (provider) => {
-    console.log(contract);
     const contractWithSign = instance.connect(provider.getSigner());
-    contractWithSign.mint()
+    contractWithSign
+      .mint()
       .then((e) => e)
       .catch((e) => alert(e.message));
   };
