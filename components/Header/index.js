@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { glowOnHover } from "../styles/Hero.module.css";
+import { glowOnHover } from "../Hero/index.module.css";
 
 function Header() {
   const [show, setShow] = useState(false);

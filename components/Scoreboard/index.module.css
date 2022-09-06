@@ -13,7 +13,7 @@
   color: aliceblue;
 }
 .cardContainer > * {
-  background-image: url('../public/bgpasto.png');
+  background-image: url('../../public/bgpasto.png');
   text-align: center;
 }
 .cardContainer > * > * {

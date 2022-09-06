@@ -1,11 +1,11 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import Image from "next/image";
-import styles from "../styles/Info.module.css";
-import wallets from "../public/wallets.png";
-import cards from "../public/cards.png";
-import album from "../public/album.png";
-import { glowOnHover } from "../styles/Hero.module.css";
+import styles from "./index.module.css";
+import wallets from "../../public/wallets.png";
+import cards from "../../public/cards.png";
+import album from "../../public/album.png";
+import { glowOnHover } from "../Hero/index.module.css";
 
 const { bloque, bloqueTexto, reverse, bloqueImg } = styles;
 
