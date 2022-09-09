@@ -1,26 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonConnect from "../ButtonConnect";
 import Image from "next/image";
-import { heroContent, heroWrapper, glowOnHover } from "./index.module.css";
+import { heroContent, heroWrapper } from "./index.module.css";
 import { useWallet } from "../../hooks/useWallet";
-
-const IMAGE_URL = "/Hero2.png";
+import img01 from "../../public/static/001.jpg";
+import img02 from "../../public/static/002.jpg";
 
 export default function Hero() {
   return (
-    <section id="hero">
-      <div className={heroWrapper} id="home">
-        <Image
-          priority
-          src={IMAGE_URL}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          alt="Imagenes de figuritas de futbol"
-        />
+    <section className={heroWrapper} id="hero">
+      <div>
+        <Image layout="fixed" width="264" height="343" src={img02} />
         <div className={heroContent}>
-          <ButtonConnect className={glowOnHover} variant="danger" size="lg" />{" "}
+          <h3>PASIÓN PROPIA</h3>
+          <ButtonConnect />
         </div>
+        <Image layout="fixed" width="264" height="343" src={img01} />
       </div>
     </section>
   );

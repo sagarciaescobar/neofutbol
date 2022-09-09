@@ -1,8 +1,21 @@
 .footer {
-  background-color: #212529;
+  height: 26px;
+  background-color: #2222225c;
   color: #ffffff;
-  padding: 20px;
+  width: 100%;
   text-align: center;
   max-height: 60px;
+  bottom: 0;
+  padding: 3px;
 }
 
+.footer div {
+  max-width: 1240px;
+  margin: auto;
+  border-top: solid 2px #f0c175;
+}
+.footer p {
+  font-weight: 400;
+  font-size: 12px;
+  text-align: start;
+}

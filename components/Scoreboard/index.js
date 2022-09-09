@@ -3,11 +3,13 @@ import Image from "next/image";
 import Table from "react-bootstrap/Table";
 import Button from "../ButtonConnect";
 import logo from "../../public/logo.png";
-import { glowOnHover } from "../Hero/index.module.css";
-import style from "./index.module.css";
+import {
+  scoreboard,
+  title,
+  cardContainer,
+  imagenContenedor,
+} from "./index.module.css";
 import { useNeoFutbol } from "../../hooks/useNeoFutbol";
-
-const { title, cardContainer, bloque, imagen, imagenContenedor } = style;
 
 const users = [
   { address: "0xac57b9a39c3eEec32228B370188d8A15aAfD2798", percentage: 90 },
@@ -25,55 +27,51 @@ const users = [
 export default function Scoreboard() {
   const { contract } = useNeoFutbol();
   const [users, setUsers] = useState([]);
-  useEffect(
-    ()=> {
-      if(contract.getOwners){
-        contract.getOwners()
-        .then(data =>{setUsers(data)})
-      }
-    },[contract])
+  useEffect(() => {
+    if (contract.getOwners) {
+      contract.getOwners().then((data) => {
+        setUsers(data);
+      });
+    }
+  }, [contract]);
   return (
-    <section id="scoreboard">
-      <h1 className={title}>Tabla de posiciones</h1>
-      <div className={cardContainer}>
-        <div className="card">
-          <div className="card-body">
-            <Table responsive>
-              <thead>
-                <tr>
-                  <th scope="col">Posición</th>
-                  <th scope="col">Dirección (address)</th>
-                  <th scope="col">% de llenado del álbum</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map((user, index) => (
-                  <tr key={index}>
-                    <th scope="row">
-                      {index + 1 === 1
-                        ? "1st"
-                        : index + 1 === 2
-                        ? "2nd"
-                        : index + 1 === 3
-                        ? "3rd"
-                        : index + 1}
-                    </th>
-                    <td>
-                      {user.address.slice(0, 3)}...{user.address.slice(-5)}
-                    </td>
-                    <td>{user.percentage}%</td>
+    <section className={`${scoreboard}`} id="scoreboard">
+      <div>
+        <h1 className={title}>Tabla de posiciones</h1>
+        <div className={cardContainer}>
+          <div className="card">
+            <div className="card-body">
+              <Table responsive>
+                <thead>
+                  <tr>
+                    <th scope="col">Posición</th>
+                    <th scope="col">Dirección (address)</th>
+                    <th scope="col">% de llenado del álbum</th>
                   </tr>
-                ))}
-              </tbody>
-            </Table>
+                </thead>
+                <tbody>
+                  {users.map((user, index) => (
+                    <tr key={index}>
+                      <th scope="row">
+                        {index + 1 === 1
+                          ? "1st"
+                          : index + 1 === 2
+                          ? "2nd"
+                          : index + 1 === 3
+                          ? "3rd"
+                          : index + 1}
+                      </th>
+                      <td>
+                        {user.address.slice(0, 3)}...{user.address.slice(-5)}
+                      </td>
+                      <td>{user.percentage}%</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={imagenContenedor}>
-        <Image className={imagen} src={logo} alt="Logo Grande" />
-      </div>
-      <div className={bloque}>
-        <Button className={glowOnHover} variant="danger" size="lg"/>{" "}
       </div>
     </section>
   );

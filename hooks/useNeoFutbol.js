@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { ethers } from "ethers";
-
 import { abi, address } from "../config/contractData.json";
 
 export const useNeoFutbol = () => {
@@ -9,13 +8,14 @@ export const useNeoFutbol = () => {
   const [loading, setLoading] = useState(true);
 
   const ethersLibrary = useCallback(() => {
-    if (typeof window !== "undefined") {
-      import("ethers").then(async (ethers) => {
-        const provi = new ethers.providers.Web3Provider(window.ethereum);
+    import("ethers").then(async (ethers) => {
+      const provi = new ethers.providers.Web3Provider(window.ethereum);
+      const chainId = (await provi.detectNetwork()).chainId;
+      if (chainId == 4) {
         const cont = new ethers.Contract(address, abi, provi);
         setInstance(cont);
-      });
-    }
+      }
+    });
   }, []);
 
   const getOwners = async () => {
@@ -35,7 +35,7 @@ export const useNeoFutbol = () => {
       );
       return { address: curr, percentage };
     });
-    data.sort((a,b)=>a.percentage < b.percentage)
+    data.sort((a, b) => a.percentage < b.percentage);
     return data;
   };
 

@@ -1,0 +1,94 @@
+.howto {
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: center;
+  padding-top: 92px;
+  display: flex;
+  justify-content: center;
+  background-image: url("/static/stadium.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.howto::after {
+  content: " ";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.869);
+  position: absolute;
+}
+
+.howto > div {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  padding: 120px 0 0;
+  max-width: 1280px;
+  display: flex;
+  margin: auto;
+}
+
+.info1 {
+  width: 50%;
+}
+
+.info1 {
+  padding-left: 50px;
+}
+
+.info1 h4 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.info1 h6 {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+}
+
+.info1 > div {
+  position: relative;
+  padding-top: 40px;
+  padding-right: 190px;
+}
+
+.info1 > div::before {
+  content: ' ';
+  position: absolute;
+  padding-top: 40px;
+  top: 40px;
+  bottom: 0;
+  left: 20px;
+  width: 5px;
+  background-color: #f0c175;
+}
+
+.info1 > div p {
+  font-size: 18px;
+  padding-left: 40px;
+}
+
+.info2 {
+  width: 50%;
+}
+
+.info2 img {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+.info2 img::before {
+  content: ' ';
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url('/wallets.png');
+  background-size: cover;
+}

@@ -1,0 +1,35 @@
+.header {
+  width: 100vw;
+  height: 64px;
+  background: #121212;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+.nav {
+  height: 100%;
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  border-bottom: solid 2px #F0C175;
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand {
+  height: 100%;
+  padding: 10px 0;
+  display: flex;
+  text-align: center;
+}
+.brand a {
+  font-size: 40px;
+  font-weight: 400;
+}
+.brand strong {
+  font-weight: 900;
+}

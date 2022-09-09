@@ -1,18 +1,18 @@
-import Button from "react-bootstrap/Button";
 import { useWallet } from "../../hooks/useWallet";
+import { button, connected } from "./index.module.css";
 
 export default function ButtonConnect({ variant, className, size }) {
   const { connect, isActive } = useWallet();
   return (
-    <Button
+    <button
       disabled={isActive}
       onClick={connect}
-      className={className}
+      className={`default-button ${button} ${isActive && connected}`}
       variant={variant}
       size={size}
     >
       {!isActive && "Conecta tu wallet"}
       {isActive && "Conectado"}
-    </Button>
+    </button>
   );
 }
