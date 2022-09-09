@@ -32,3 +32,7 @@
   position: absolute;
   border: solid 3px #f0c175;
 }
+.connecting {
+  color: aqua;
+  background-color: black;
+}

@@ -20,7 +20,7 @@ export default function Home() {
       </Head>
       <div className={tokens_container}>
         {contract.gallery.map((token) => {
-          return <TokenCard token={token} />;
+          return <TokenCard key={token.id} token={token} />;
         })}
       </div>
     </div>

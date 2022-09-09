@@ -1,6 +1,7 @@
 import { ethers } from "ethers";
 import { hooks, metaMask } from "../connectors/metamask";
 import { chainId } from "../config/contractData.json";
+import { useEffect } from "react";
 
 export const useWallet = () => {
   const { useIsActive, useProvider, useIsActivating } = hooks;
@@ -15,7 +16,7 @@ export const useWallet = () => {
   const disconnect = async () => {
     await metaMask.resetState()
   };
-
+  
   return {
     isActivating,
     isActive,
