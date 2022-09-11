@@ -2,13 +2,32 @@
   height: calc(100vh - 90px);
   scroll-snap-align: center;
   padding-top: 80px;
+  background-image: url("/static/red-connection.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.scoreboard::after {
+  content: " ";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  position: absolute;
 }
 
 .scoreboard > div {
   max-width: 1280px;
   margin: auto;
+  z-index: 1;
+  position: inherit;
 }
 
 .cardContainer {
   background-color: #121212;
+}
+
+.title {
+  font-weight: lighter;
 }

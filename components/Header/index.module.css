@@ -1,13 +1,11 @@
 .header {
-  width: 100vw;
-  height: 64px;
-  background: #121212;
-  padding: 15px 20px;
+  background: #232323;
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 1;
-  padding: 0 20px;
+  z-index: 1000;
+  color: #e8c997;
+  border-bottom: solid 2px #F0C175;
 }
 
 .nav {
@@ -15,9 +13,12 @@
   width: 100%;
   max-width: 1280px;
   margin: auto;
-  border-bottom: solid 2px #F0C175;
   display: flex;
   justify-content: space-between;
+}
+
+.link, .brand {
+  color: #e8c997;
 }
 
 .brand {
