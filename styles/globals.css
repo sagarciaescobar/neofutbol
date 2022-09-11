@@ -5,6 +5,9 @@ body {
   margin: 0;
   scroll-behavior: smooth;
   background-color: #121212 !important;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 #__next {

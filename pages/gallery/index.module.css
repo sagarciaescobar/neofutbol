@@ -41,3 +41,16 @@
 .card > img {
   width: 220px;
 }
+
+.gallery_container::-webkit-scrollbar {
+  width: 10px;
+  position: absolute;
+  right: 0;
+}
+.gallery_container::-webkit-scrollbar-track {
+  background: #121212;        /* color of the tracking area */
+}
+.gallery_container::-webkit-scrollbar-thumb {
+  background: #f0c175;
+  border-radius: 10px;
+}

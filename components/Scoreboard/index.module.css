@@ -18,7 +18,21 @@
   background-color: #121212;
   width: 100%;
   height: 60%;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin; 
+  scrollbar-color: #f0c175 #121212;
+}
+
+.scoreContainer::-webkit-scrollbar {
+  width: 2px;
+}
+.scoreContainer::-webkit-scrollbar-track {
+  background: #121212;        /* color of the tracking area */
+}
+.scoreContainer::-webkit-scrollbar-thumb {
+  background: #f0c175;
+  border-radius: 10px;
 }
 
 .table{
