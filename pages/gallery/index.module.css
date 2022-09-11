@@ -1,5 +1,6 @@
 .gallery_container {
   padding: 20px 130px;
+  margin: auto;
   height: 100%;
   overflow-y: auto;
   width: 100%;

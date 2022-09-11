@@ -7,7 +7,7 @@ export default function TokenCard({ token }) {
   return (
     <div className={card}>
       {!token.type && <img className={card_img} src={token.image} alt={token.name} />}
-      {token.type && <p>Coming soon</p>}
+      {token.type && <img className={card_img} src={token.url} alt="coming soon" />}
     </div>
   );
 }

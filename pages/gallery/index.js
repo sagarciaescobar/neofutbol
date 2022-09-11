@@ -12,7 +12,7 @@ export default function Home() {
     const total = Math.ceil(arr.length / 7);
     console.log(total);
     for (let i = 0; i < total * 7 - arr.length + 1; i++) {
-      arr.push({ type: 'coming' });
+      arr.push({ type: 'coming', url: "/static/coming-01.png" });
     }
     const templated = [];
     for (let i = 0; i < total; i++) {
