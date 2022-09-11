@@ -1,11 +1,51 @@
+.gallery_container {
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: thin; 
+  scrollbar-color: #f0c175 #0c304b;
+  background-image: url('/static/red-connection.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery_container::-webkit-scrollbar {
+  width: 10px;
+}
+.gallery_container::-webkit-scrollbar-track {
+  background: #0c304b;        /* color of the tracking area */
+}
+.gallery_container::-webkit-scrollbar-thumb {
+  background: #f0c175;
+  border-radius: 10px;
+}
+
 .tokens_container {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 40px;
 }
-.title {
 
+.gallery_containerdsd::before{
+  content: ' ';
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url('/static/bg-02.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4);
+  z-index: 0;
+}
+
+.title {
+  position: relative;
   font-weight: lighter;
   margin: 40px 0;
 }

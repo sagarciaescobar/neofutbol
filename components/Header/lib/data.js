@@ -3,10 +3,10 @@ export const data = [
     name: 'INICIO',
     href: '/#hero'
   },{
-    name: 'COMO FUNCIONA',
+    name: 'QUE ES?',
     href: '/#info'
   },{
-    name: 'HOW TO',
+    name: 'MINT',
     href: '/#howto'
   },{
     name: 'POSICIONES',

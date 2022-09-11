@@ -7,10 +7,34 @@ body {
   width: 100%;
   min-height: 100vh;
   background-color: #121212 !important;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+body {
+  min-height: 100vh;
 }
 
 #__next {
   position: relative;
+  min-height: 100vh;
+}
+
+#modal-root {
+  position: fixed;
+  max-width: 1240px;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  overflow: hidden;
+  margin: auto;
+}
+
+main {
+  height: calc(100vh - 84px);
+  width: 100%;
 }
 
 a {

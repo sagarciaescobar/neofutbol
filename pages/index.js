@@ -1,12 +1,12 @@
-import Head from "next/head";
-import Header from "../components/Header";
-import Hero from "../components/Hero";
-import Footer from "../components/Footer";
-import Info from "../components/Info";
-import HowTo from "../components/HowTo"
-import Scoreboard from "../components/Scoreboard";
-import { main_page, container } from "./index.module.css";
-import { useState } from "react";
+import Head from 'next/head';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import Footer from '../components/Footer';
+import Info from '../components/Info';
+import HowTo from '../components/HowTo';
+import Scoreboard from '../components/Scoreboard';
+import { main_page, container } from './index.module.css';
+import { useState } from 'react';
 
 export default function Home() {
   return (
