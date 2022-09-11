@@ -26,6 +26,7 @@ body {
 
 main {
   height: calc(100vh - 84px);
+  width: 100%;
 }
 
 a {

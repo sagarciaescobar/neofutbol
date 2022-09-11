@@ -1,16 +1,13 @@
-import React from "react";
-import { Card } from "react-bootstrap";
-import { card, card_img } from "./index.module.css";
+/* eslint-disable @next/next/no-img-element */
+import React from 'react';
+import { Card } from 'react-bootstrap';
+import { card, card_img } from './index.module.css';
 
 export default function TokenCard({ token }) {
-  console.log(token);
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={token.image} />
-      <Card.Body>
-        <Card.Title>{token.name}</Card.Title>
-        <Card.Text>{token.description}</Card.Text>
-      </Card.Body>
-    </Card>
+    <div className={card}>
+      {!token.type && <img className={card_img} src={token.image} alt={token.name} />}
+      {token.type && <p>Coming soon</p>}
+    </div>
   );
 }

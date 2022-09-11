@@ -1,6 +1,9 @@
 .gallery_container {
-  min-height: 87vh;
-  margin: 20px 130px;
+  padding: 20px 130px;
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 1240px;
 }
 
 .tokens_container {
@@ -8,4 +11,32 @@
   gap: 20px;
   flex-wrap: wrap;
   justify-content: space-around;
+  position: relative;
+}
+
+.gallery_container::before{
+  content: ' ';
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url('/static/bg-02.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4);
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 250px;
+}
+
+.card {
+  width: 25%;
+}
+.card > img {
+  width: 220px;
 }
