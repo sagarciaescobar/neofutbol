@@ -7,7 +7,7 @@ const nextConfig = {
       unoptimized: true,
     },
   },
-  exportTrailingSlash: true,
+  trailingSlash: true,
   exportPathMap: function () {
     return {
       "/": { page: "/" },

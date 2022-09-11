@@ -1,35 +1,30 @@
-import React, { useState, useLayoutEffect, useEffect, useMemo } from "react";
-import { hamb, menu, container_menu, actual } from "./menu.module.css";
-import { data } from "./data";
+import React, { useState, useEffect } from 'react';
+import { hamb, menu, container_menu, actual } from './menu.module.css';
+import { data } from './data';
 
 export const Menu = () => {
   const [active, setActive] = useState(false);
 
-  const setData = (view) => {
-    view.addEventListener("scroll", (e) => {
-      e.target.childNodes.forEach((ele, i) => {
-        if (ele.offsetTop <= view.scrollTop + 74 && i + 1 != active) {
-          setActive(i + 1);
-        }
+  const menuListener = () => {
+    const { href } = window.location;
+    for (let i = 0; i < data.length; i++) {
+      if (href.includes(data[i].href)) setActive(i + 1);
+    }
+    const view = document.querySelector('#home');
+    if (view != null) {
+      setActive(1);
+      view.addEventListener('scroll', e => {
+        e.target.childNodes.forEach((ele, i) => {
+          if (ele.offsetTop <= view.scrollTop + 74 && i + 1 != active) {
+            setActive(i + 1);
+          }
+        });
       });
-    });
+    }
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const { href } = window.location;
-      for (let i = 0; i < data.length; i++) {
-        if (href.includes(data[i].href)) {
-          setActive(i + 1);
-        }
-      }
-      const view = document.querySelector("#home");
-      console.log(view);
-      if (view != null) {
-        setActive(1);
-        setData(view);
-      }
-    }
+    if (typeof window !== 'undefined') menuListener();
   }, []);
 
   return (

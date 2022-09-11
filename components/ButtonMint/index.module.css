@@ -59,3 +59,9 @@
     background-size: 100%;
    }
 }
+.deactived:hover {
+  color: grey;
+}
+.deactived:hover::before {
+  border: solid 3px grey;
+}

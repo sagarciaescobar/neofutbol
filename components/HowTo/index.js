@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { howto, info1, info2 } from "./index.module.css";
 import { useWallet } from "../../hooks/useWallet";
 import ButtonConnect from "../ButtonConnect";
+import ButtonMint from "../ButtonMint";
 
 export default function Info() {
   const { isActive, provider } = useWallet();
@@ -15,12 +17,12 @@ export default function Info() {
             <p>PASO 1</p>
             <ButtonConnect />
             <p>PASO 2</p>
-            <ButtonConnect />
+            <ButtonMint />
           </div>
         </div>
         <div className={info2}>
           <p>METAMASK Y WALLET CONNECT YA ESTAN EN LA CANCHA</p>
-          <img src="/static/cancha.jpg" />
+          <img src="/static/cancha.jpg" alt="cancha" />
         </div>
       </div>
     </section>

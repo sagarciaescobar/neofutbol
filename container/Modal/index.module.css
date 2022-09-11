@@ -1,0 +1,23 @@
+.modal {
+  max-width: 1240px;
+  width: 100%;
+  left: 0;
+  background-color: #f0c175af;
+  right: 0;
+  bottom: 23px;
+  transition: all 1s;
+  height: 0;
+  overflow: hidden;
+  padding: 12px;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal p {
+  color: black;
+}
+
+.active {
+  display: flex;
+}

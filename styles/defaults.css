@@ -9,3 +9,13 @@
 .card {
   background-color: transparent;
 }
+
+.material-symbols-outlined {
+  cursor: pointer;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 48;
+  color: black;
+}
