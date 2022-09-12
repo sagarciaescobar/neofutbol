@@ -61,7 +61,6 @@ export const useNeoFutbol = () => {
         const initData = JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, '')));
         const extendData = await fetch(initData.metadata);
         const meta = await extendData.json();
-        console.log(initData);
         return { ...initData, ...meta };
       });
       const data = await Promise.all(promises);
@@ -73,10 +72,23 @@ export const useNeoFutbol = () => {
     }
   };
 
+  const getNftById = async id => {
+    setLoading(true);
+    try {
+      const token = await instance.tokenURI(id);
+      const initData = JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, '')));
+      const extendData = await fetch(initData.metadata);
+      const meta = await extendData.json();
+      return { ...initData, ...meta };
+    } catch (e) {
+      setError(e.error);
+    }
+  };
+
   useEffect(() => {
     if (instance) {
       getData();
-      setContract(prev => ({ ...prev, getOwners: getOwners }));
+      setContract(prev => ({ ...prev, getOwners: getOwners, getNftById: getNftById }));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [instance]);
@@ -85,5 +97,5 @@ export const useNeoFutbol = () => {
     ethersLibrary();
   }, []);
 
-  return { contract, loading, mint, error, setError };
+  return { contract, loading, mint, error, setError, setLoading };
 };

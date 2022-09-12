@@ -12,6 +12,7 @@ export default function TokenCard({ token, handleshown, handleHide }) {
   return (
     <div
       className={card}
+      onClick={()=>{window.location.assign(window.location.origin + '/user/tokens/'+token.id)}}
       onMouseEnter={() => handleshown(token)}
       // onMouseLeave={() => handleHide()}
       onClick={handleClick}
