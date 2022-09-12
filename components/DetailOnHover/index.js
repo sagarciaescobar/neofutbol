@@ -5,7 +5,7 @@ import { detailOnHover, cardHover, listItem ,listContainer} from './index.module
 export default function DetailOnHover({tokenHovered}) {
     const [token, setToken] = useState(tokenHovered);
 
-    const mockPlayer = {
+    const mockToken = {
     name: 'ACUÑA',
     image: 'https://playersnft-b264c.web.app/players/argentina/default/001.jpg',
     attributes: [
@@ -40,17 +40,18 @@ export default function DetailOnHover({tokenHovered}) {
         setToken(tokenHovered);
     }, [tokenHovered]);
 
+    console.log(token);
     return (
         <div className={card} style={{ position: 'absolute', alignSelf: 'center'  }}>
             {!token.type && (
             <>
-                <div id={cardHover}>
+                <div onClick={()=>{window.location.assign(`${window.location.origin}/user/tokens/${token.id}`)}} id={cardHover}>
                 <img className={card_img} id={detailOnHover} src={token.image} alt={token.name} />
                 </div>
                 <div id={listContainer}>
-                    <h1>{mockPlayer.name}</h1>
+                    <h1>{token.name}</h1>
                     <ul>
-                        {mockPlayer.attributes.map((attribute, idx) => {
+                        {token.attributes.map((attribute, idx) => {
                         return (
                             <li className={listItem} key={idx}>
                                 <span>{attribute['value']}</span>

@@ -38,14 +38,14 @@ export const useNeoFutbol = () => {
     const contractWithSign = await instance.connect(provider.getSigner());
     const tx = await contractWithSign.mint().catch(e => setError(e.error));
     if (tx) {
-      setError({message: `transaction in progress `})
+      setError({ message: `transaction in progress ` });
       tx.wait()
-      .then(t => {
-        setError({message: `transaction in completed: ${t.blockHash}`})
-      })
-      .catch(e => {
-        setError(e.error);
-      });
+        .then(t => {
+          setError({ message: `transaction in completed: ${t.blockHash}` });
+        })
+        .catch(e => {
+          setError(e.error);
+        });
     } else {
       setError({ message: 'user rejected transaccion' });
     }
@@ -58,7 +58,11 @@ export const useNeoFutbol = () => {
       const tokens = new Array(totalSupply.toNumber()).fill();
       const promises = tokens.map(async (_, i) => {
         const token = await instance.tokenURI(i);
-        return JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, '')));
+        const initData = JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, '')));
+        const extendData = await fetch(initData.metadata);
+        const meta = await extendData.json();
+        console.log(initData);
+        return { ...initData, ...meta };
       });
       const data = await Promise.all(promises);
       //(const final = data.map((d)=>JSON.parse(d));
