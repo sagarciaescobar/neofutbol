@@ -5,37 +5,6 @@ import { detailOnHover, cardHover, listItem ,listContainer} from './index.module
 export default function DetailOnHover({tokenHovered}) {
     const [token, setToken] = useState(tokenHovered);
 
-    const mockToken = {
-    name: 'ACUÑA',
-    image: 'https://playersnft-b264c.web.app/players/argentina/default/001.jpg',
-    attributes: [
-        {
-        'trail-type': 'PAC',
-        value: '76',
-        },
-        {
-        'trail-type': 'SHO',
-        value: '74',
-        },
-        {
-        'trail-type': 'PAS',
-        value: '82',
-        },
-        {
-        'trail-type': 'DRI',
-        value: '87',
-        },
-        {
-        'trail-type': 'DEF',
-        value: '79',
-        },
-        {
-        'trail-type': 'PHY',
-        value: '82',
-        },
-    ],
-    };
-
     useEffect(() => {
         setToken(tokenHovered);
     }, [tokenHovered]);
