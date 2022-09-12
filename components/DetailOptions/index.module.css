@@ -1,0 +1,14 @@
+.DetailOptionsContainer {
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.DetailOptionsContainer div {
+    margin: 10px;
+    background: #282934;
+    width: 100%;
+    box-shadow: 0 5px 50px rgba(0,0,0,.5);
+    height: 200px;
+}

@@ -1,0 +1,42 @@
+.DetailTokenContainer{
+    height: 50%;
+    background: #282934;
+    max-width: 1024px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 5px 50px rgba(0,0,0,.5);
+    position: relative;
+}
+.DetailTokenContainer:before {
+    content: '';
+    position: absolute;
+    top:0;
+    left:-150px;
+    width: 100px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: skew(-30deg);
+    transition: 0.9s;
+}
+
+.DetailTokenContainer:hover:before {
+    animation: brightEffect 3s 2s infinite cubic-bezier(.15,.77,.97,.22);
+}
+
+@keyframes brightEffect {
+    0% {
+        left:-150px;
+    }
+
+    25% {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    75% {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    100% {
+        left: 100%;
+    }
+}

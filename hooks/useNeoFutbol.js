@@ -61,6 +61,7 @@ export const useNeoFutbol = () => {
         return JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, '')));
       });
       const data = await Promise.all(promises);
+      //(const final = data.map((d)=>JSON.parse(d));
       setContract(prev => ({ ...prev, gallery: data }));
       setLoading(false);
     } catch (e) {
