@@ -22,8 +22,16 @@
 
 .heroContent h3 {
   font-size: 4em !important;
-  margin-bottom: 98px;
+  margin-bottom: 40px;
   font-weight: 700;
+  text-align: center;
+}
+
+.description {
+  max-width: 500px;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
 }
 
 @media (min-width: 1445px) {

@@ -2,16 +2,33 @@
   height: calc(100vh - 90px);
   scroll-snap-align: center;
   padding-top: 80px;
+  background-image: url('/static/red-connection.jpg');
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.scoreboard::after {
+  content: ' ';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  position: absolute;
 }
 
 .scoreboard > div {
   max-width: 1240px;
   margin: auto;
   padding: 0 20px;
+  z-index: 1;
+  position: inherit;
 }
 
 .title {
   text-align: center;
+  font-weight: lighter;
+  margin-bottom: 20px;
 }
 
 .scoreContainer {
@@ -20,31 +37,34 @@
   height: 60%;
   overflow-y: scroll;
   overflow-x: hidden;
-  scrollbar-width: thin; 
+  scrollbar-width: thin;
   scrollbar-color: #f0c175 #121212;
+  border-radius: 8px;
 }
 
 .scoreContainer::-webkit-scrollbar {
   width: 2px;
 }
 .scoreContainer::-webkit-scrollbar-track {
-  background: #121212;        /* color of the tracking area */
+  background: #121212; /* color of the tracking area */
 }
 .scoreContainer::-webkit-scrollbar-thumb {
   background: #f0c175;
   border-radius: 10px;
 }
 
-.table{
+.table {
   width: 100%;
 }
 
-.table > thead > tr , .table > tbody > tr {
+.table > thead > tr,
+.table > tbody > tr {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  text-align: center;
 }
 
-.table > thead > tr  {
+.table > thead > tr {
   margin-top: 20px;
   padding-bottom: 10px;
   border-bottom: solid 2px #f0c175;

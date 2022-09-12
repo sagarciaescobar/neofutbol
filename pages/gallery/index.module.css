@@ -1,21 +1,36 @@
 .gallery_container {
-  padding: 20px 130px;
-  margin: auto;
   height: 100%;
   overflow-y: auto;
   width: 100%;
-  max-width: 1240px;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: thin; 
+  scrollbar-color: #f0c175 #0c304b;
+  background-image: url('/static/red-connection.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery_container::-webkit-scrollbar {
+  width: 10px;
+}
+.gallery_container::-webkit-scrollbar-track {
+  background: #0c304b;        /* color of the tracking area */
+}
+.gallery_container::-webkit-scrollbar-thumb {
+  background: #f0c175;
+  border-radius: 10px;
 }
 
 .tokens_container {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   flex-wrap: wrap;
-  justify-content: space-around;
-  position: relative;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
-.gallery_container::before{
+.gallery_containerdsd::before{
   content: ' ';
   position:absolute;
   top: 0;
@@ -26,31 +41,11 @@
   background-size: cover;
   background-position: center;
   filter: brightness(0.4);
+  z-index: 0;
 }
 
-.row {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  height: 250px;
-}
-
-.card {
-  width: 25%;
-}
-.card > img {
-  width: 220px;
-}
-
-.gallery_container::-webkit-scrollbar {
-  width: 10px;
-  position: absolute;
-  right: 0;
-}
-.gallery_container::-webkit-scrollbar-track {
-  background: #121212;        /* color of the tracking area */
-}
-.gallery_container::-webkit-scrollbar-thumb {
-  background: #f0c175;
-  border-radius: 10px;
+.title {
+  position: relative;
+  font-weight: lighter;
+  margin: 40px 0;
 }

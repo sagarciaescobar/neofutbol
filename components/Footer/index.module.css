@@ -1,6 +1,6 @@
 .footer {
   height: 26px;
-  background-color: #2222225c;
+  background: #232323;
   color: #ffffff;
   width: 100%;
   text-align: center;
@@ -8,6 +8,7 @@
   bottom: 0;
   padding: 3px;
   position:absolute;
+  z-index: 100;
 }
 
 .footer div {

@@ -1,9 +1,33 @@
 .card {
-  width: 220px;
-  height: 400px;
+  border: 1px solid #4c4b4b;
   border-radius: 12px;
+  position: relative;
+  background-color: rgba(35, 35, 35, 0.7);
+}
+.card:hover .card-img-top {
+  width: 110% !important;
 }
 .card_img {
+  width: 90%;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  margin: auto;
+  z-index: 2;
+  transition: width 0.3s;
+}
+.card_img:hover {
   width: 100%;
-  filter: drop-shadow(5px 5px 5px #222);
+}
+.card_img_aux {
+  width: 100%;
+  opacity: 0.0;
+  z-index: 1;
+}
+.card_body {
+  text-align: center;
+}
+.card_title, .card_text {
+  color: white;
+  font-weight: 400;
 }

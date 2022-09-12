@@ -33,15 +33,15 @@ export default function Info() {
             decoraciones doradas y platinadas.
           </p>
           <div className={info1Imgs}>
-            <img src="/static/001.jpg" alt="tokens ejemplo"/>
-            <img src="/static/001.jpg" alt="tokens ejemplo"/>
-            <img src="/static/001.jpg" alt="tokens ejemplo"/>
-            <img src="/static/001.jpg" alt="tokens ejemplo"/>
-            <img src="/static/001.jpg" alt="tokens ejemplo"/>
+            <img src="/static/001.jpg" alt="tokens ejemplo" />
+            <img src="/static/001.jpg" alt="tokens ejemplo" />
+            <img src="/static/001.jpg" alt="tokens ejemplo" />
+            <img src="/static/001.jpg" alt="tokens ejemplo" />
+            <img src="/static/001.jpg" alt="tokens ejemplo" />
           </div>
         </div>
         <div className={info2}>
-          <img src="/static/ball.jpg" alt="balon de futbol"/>
+          <img src="/static/nft.jpg" alt="balon de futbol" />
           <h4>GANAR, GANAR Y GANAR !</h4>
           <p>
             No solo puedes ganar obteniendo figuritas difíciles, también puedes

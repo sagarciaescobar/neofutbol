@@ -5,6 +5,7 @@
   position: relative;
   width: 230px;
   height: 20px;
+  cursor: pointer;
 }
 
 .button:hover::before {

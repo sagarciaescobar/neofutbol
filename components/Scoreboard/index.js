@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Table from 'react-bootstrap/Table';
 import Button from '../ButtonConnect';
 import logo from '../../public/logo.png';
-import { scoreboard, title, scoreContainer,table, imagenContenedor } from './index.module.css';
+import { scoreboard, title, scoreContainer, table, imagenContenedor } from './index.module.css';
 import { useNeoFutbol } from '../../hooks/useNeoFutbol';
 
 const users = [
