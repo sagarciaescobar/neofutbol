@@ -7,6 +7,25 @@ import { useNeoFutbol } from '../../../../hooks/useNeoFutbol';
 import { useRouter } from 'next/router';
 import LoaderSpinner from '../../../../components/LoaderSpinner';
 
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id: '1' } },
+      { params: { id: '2' } },
+      { params: { id: '3' } },
+      { params: { id: '4' } },
+      { params: { id: '5' } },
+      { params: { id: '6' } },
+      { params: { id: '7' } },
+      { params: { id: '8' } },
+      { params: { id: '9' } },
+      { params: { id: '10' } },
+      { params: { id: '11' } },
+    ],
+    fallback: false, // can also be true or 'blocking'
+  };
+}
+
 export default function Detail() {
   const router = useRouter();
   const { query } = router;
@@ -31,7 +50,7 @@ export default function Detail() {
       </Head>
       <div className={DetailContainer} style={{ height: '100vh' }}>
         <DetailToken dataToken={token} />
-        <DetailOptions tokenAttributes={token["attributes"]} />
+        <DetailOptions tokenAttributes={token['attributes']} />
       </div>
     </div>
   );
