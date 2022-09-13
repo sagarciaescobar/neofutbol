@@ -39,17 +39,17 @@ export default function Home() {
   return (
     <>
       <Head>
-          <title>Neo FuTbol gallery</title>
-          <meta name="description" content="NFT Neo FuTbol gallery" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+        <title>Neo FuTbol gallery</title>
+        <meta name="description" content="NFT Neo FuTbol gallery" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className={gallery_container}>
-      {isShown ? <DetailOnHover tokenHovered={tokenHovered} /> : <div></div>}
+        {isShown ? <DetailOnHover tokenHovered={tokenHovered} /> : <div></div>}
         <div className={tokens_container}>
           {gridGallery(contract.gallery).map((arr, i) => (
             <div key={`grid-gallery-${i}`} className={row}>
               {arr.map(token => (
-                <TokenCard key={token.id} token={token} handleshown={handleshown} handleHide={handleHide}/>
+                <TokenCard key={token.id} token={token} handleshown={handleshown} handleHide={handleHide} />
               ))}
             </div>
           ))}

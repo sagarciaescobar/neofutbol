@@ -5,17 +5,12 @@ import { card, card_img } from './index.module.css';
 
 export default function TokenCard({ token, handleshown, handleHide }) {
 
-  const handleClick = () => {
-      window.location.href = "/user/tokens/" + token.id
-  }
-
   return (
     <div
       className={card}
       onClick={()=>{window.location.assign(window.location.origin + '/user/tokens/'+token.id)}}
       onMouseEnter={() => handleshown(token)}
-      // onMouseLeave={() => handleHide()}
-      onClick={handleClick}
+      onMouseLeave={() => handleHide()}
       id="cardToken"
     >
       {!token.type && <img className={card_img} src={token.image} alt={token.name} />}

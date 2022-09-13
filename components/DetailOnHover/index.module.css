@@ -3,6 +3,12 @@
     padding: 10px;
 }
 
+.cardHovered {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
 #cardHover {
     position: absolute;
     filter: drop-shadow(1px 0px 0px #5cf2ce)

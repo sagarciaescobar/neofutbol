@@ -31,7 +31,7 @@ export default function Detail() {
       </Head>
       <div className={DetailContainer} style={{ height: '100vh' }}>
         <DetailToken dataToken={token} />
-        <DetailOptions />
+        <DetailOptions tokenAttributes={token["attributes"]} />
       </div>
     </div>
   );
