@@ -12,6 +12,7 @@ const nextConfig = {
     return {
       "/": { page: "/" },
       "/gallery": { page: "/gallery" },
+      "/user/tokens/[id]": { page: "/user/tokens/[id]" },
     };
   },
 };
