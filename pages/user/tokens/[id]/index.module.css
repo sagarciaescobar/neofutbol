@@ -1,0 +1,11 @@
+.DetailPageContainer {
+    height: calc(100vh - 84px);
+    margin: 0 auto;
+    scroll-snap-align: center;
+    background-image: url("../../../../public/static/detail.jpg");
+    background-size: cover;
+    background-position: center;
+}
+.DetailContainer {
+    padding-top: 100px;
+}

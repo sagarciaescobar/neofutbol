@@ -38,14 +38,14 @@ export const useNeoFutbol = () => {
     const contractWithSign = await instance.connect(provider.getSigner());
     const tx = await contractWithSign.mint().catch(e => setError(e.error));
     if (tx) {
-      setError({message: `transaction in progress `})
+      setError({ message: `transaction in progress ` });
       tx.wait()
-      .then(t => {
-        setError({message: `transaction in completed: ${t.blockHash}`})
-      })
-      .catch(e => {
-        setError(e.error);
-      });
+        .then(t => {
+          setError({ message: `transaction in completed: ${t.blockHash}` });
+        })
+        .catch(e => {
+          setError(e.error);
+        });
     } else {
       setError({ message: 'user rejected transaccion' });
     }
@@ -58,11 +58,28 @@ export const useNeoFutbol = () => {
       const tokens = new Array(totalSupply.toNumber()).fill();
       const promises = tokens.map(async (_, i) => {
         const token = await instance.tokenURI(i);
-        return JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, '')));
+        const initData = JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, '')));
+        const extendData = await fetch(initData.metadata);
+        const meta = await extendData.json();
+        return { ...initData, ...meta };
       });
       const data = await Promise.all(promises);
+      //(const final = data.map((d)=>JSON.parse(d));
       setContract(prev => ({ ...prev, gallery: data }));
       setLoading(false);
+    } catch (e) {
+      setError(e.error);
+    }
+  };
+
+  const getNftById = async id => {
+    setLoading(true);
+    try {
+      const token = await instance.tokenURI(id);
+      const initData = JSON.parse(atob(token.replace(/^data:\w+\/\w+;base64,/, '')));
+      const extendData = await fetch(initData.metadata);
+      const meta = await extendData.json();
+      return { ...initData, ...meta };
     } catch (e) {
       setError(e.error);
     }
@@ -71,7 +88,7 @@ export const useNeoFutbol = () => {
   useEffect(() => {
     if (instance) {
       getData();
-      setContract(prev => ({ ...prev, getOwners: getOwners }));
+      setContract(prev => ({ ...prev, getOwners: getOwners, getNftById: getNftById }));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [instance]);
@@ -80,5 +97,5 @@ export const useNeoFutbol = () => {
     ethersLibrary();
   }, []);
 
-  return { contract, loading, mint, error, setError };
+  return { contract, loading, mint, error, setError, setLoading };
 };

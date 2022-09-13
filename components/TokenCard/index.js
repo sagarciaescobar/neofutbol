@@ -3,8 +3,11 @@ import { Card } from 'react-bootstrap';
 import { card, card_img, card_img_aux, card_body, card_title, card_text } from './index.module.css';
 
 export default function TokenCard({ token }) {
+  const handleClick = () => {
+    window.location.assign(window.location.origin + '/user/tokens/' + token.id);
+  };
   return (
-    <Card style={{ width: '18rem' }} className={card}>
+    <Card onClick={handleClick} style={{ width: '18rem' }} className={card}>
       <Card.Img variant="top" src={token.image} className={card_img} />
       <Card.Img variant="top" src={token.image} className={card_img_aux} />
       <Card.Body className={card_body}>
