@@ -25,6 +25,12 @@ export async function getStaticPaths() {
     fallback: false, // can also be true or 'blocking'
   };
 }
+export async function getStaticProps(context) {
+  return {
+    // Passed to the page component as props
+    props: { post: {} },
+  }
+}
 
 export default function Detail() {
   const router = useRouter();
